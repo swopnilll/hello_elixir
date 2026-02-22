@@ -237,3 +237,10 @@ iex> HelloElixir.hello()
 # Run tests
 mix test
 ```
+
+---
+
+## Notes: Table of Contents
+
+### [1. Elixir Struct Syntax](notes/1-Elixir-Struct-Syntax.md)
+

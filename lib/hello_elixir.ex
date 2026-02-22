@@ -13,6 +13,6 @@ defmodule HelloElixir do
 
   """
   def hello do
-    :world
+    "Hello Elixir!"
   end
 end
