@@ -4,4 +4,8 @@ defmodule HelloElixir.Cards  do
     "Hello, Elixir Cards!"
   end
 
+  def create_deck do
+
+  end
+
 end
