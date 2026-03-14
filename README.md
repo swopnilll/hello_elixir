@@ -244,3 +244,14 @@ mix test
 
 ### [1. Elixir Struct Syntax](notes/1-Elixir-Struct-Syntax.md)
 
+### [2. CLU Command Parser](notes/2-CLI-command-parser.md)
+
+### [3. Cards Project](notes/cards/1.md)
+- [3.1 Intro](notes/cards/2.md)
+- [3.2 Mix Intro](notes/cards/2.md)
+
+
+
+
+
+
