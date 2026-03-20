@@ -1,3 +1,27 @@
+--## Notes: Table of Contents
+
+### [1. Elixir Struct Syntax](notes/1-Elixir-Struct-Syntax.md)
+  - ### [1.1 List in Elixir](notes/3-Elixir-List.md)
+
+### [2. CLU Command Parser](notes/2-CLI-command-parser.md)
+
+### [3. Cards Project](notes/cards/1.md)
+- [3.1 Intro](notes/cards/2.md)
+- [3.2 Mix Intro](notes/cards/2.md)
+
+
+### [4. Pattern Match](notes/pattern-match/1.md)
+- [4.1 Elixir File System + Erlang + BEAM](notes/pattern-match/2.md)
+- [4.2 Saving Data in Elixir (Using Erlang)](notes/pattern-match/3.md)
+- [4.3 Loading Data + Pattern Matching + Error Handling](notes/pattern-match/4.md)
+- [4.4 Atoms + Advanced Pattern Matching + Clean Case](notes/pattern-match/5.md)
+- [4.5 Pipe Operator](notes/pattern-match/6.md)
+- [4.6 Pipe Operator (|>) in Elixir](notes/pattern-match/7.md)
+- [4.7 Summary](notes/pattern-match/8.md)
+
+
+
+
 # HelloElixir - Learning Notes
 
 ## Project Structure
@@ -226,6 +250,8 @@ MyModule.my_function(8)  # => 50
 
 ## Running the Project
 
+
+
 ```bash
 # Start interactive shell
 iex -S mix
@@ -237,24 +263,6 @@ iex> HelloElixir.hello()
 # Run tests
 mix test
 ```
-
----
-
-## Notes: Table of Contents
-
-### [1. Elixir Struct Syntax](notes/1-Elixir-Struct-Syntax.md)
-  - ### [1.1 List in Elixir](notes/3-Elixir-List.md)
-
-### [2. CLU Command Parser](notes/2-CLI-command-parser.md)
-
-### [3. Cards Project](notes/cards/1.md)
-- [3.1 Intro](notes/cards/2.md)
-- [3.2 Mix Intro](notes/cards/2.md)
-
-
-
-
-
 
 
 
