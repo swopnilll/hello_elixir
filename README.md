@@ -19,6 +19,13 @@
 - [4.6 Pipe Operator (|>) in Elixir](notes/pattern-match/7.md)
 - [4.7 Summary](notes/pattern-match/8.md)
 
+### [5. Data Structure in Elixir]
+- [5.1 Maps in Elxir](notes/pattern-match/9.md)
+- [5.2 Maps in Elxir ( Write Operation)](notes/pattern-match/10.md)
+- [5.3 ](notes/pattern-match/11.md)
+- [5.4 ](notes/pattern-match/10.md)
+- [5.5 ](notes/pattern-match/11.md)
+- [5.6 ](notes/pattern-match/12.md)
 
 
 
