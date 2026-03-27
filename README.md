@@ -53,11 +53,25 @@ A simple card game that teaches core Elixir concepts.
 
 Generate unique identicon images (like GitHub's default avatars) from strings. This project focuses on Elixir syntax, structs, maps, and lists.
 
-### Setup & Concepts
+### Setup & Planning
 - [2.1 Project Setup](notes/identication/1.md)
 - [2.2 Requirements & Flow](notes/identication/2.md)
 - [2.3 MD5 Hashing Approach](notes/identication/3.md)
 - [2.4 Hash Function & Grid Logic](notes/identication/4.md)
+
+### Data Structures
+- [2.5 Structs in Elixir](notes/identication/5.md)
+- [2.6 Pattern Matching with Structs & Lists](notes/identication/6.md)
+
+### Building the Grid
+- [2.7 Enum.chunk & Grid Building](notes/identication/7.md)
+- [2.8 Implementing mirror_row & ++ Operator](notes/identication/8.md)
+- [2.9 Enum.map & Function References (&func/arity)](notes/identication/9.md)
+- [2.10 List.flatten, Enum.with_index & Updating Structs](notes/identication/10.md)
+- [2.11 Enum.filter, Anonymous Functions (fn) & rem](notes/identication/11.md)
+
+### Rendering the Image
+- [2.12 Building the Pixel Map (Index to Coordinates)](notes/identication/12.md)
 
 ---
 
