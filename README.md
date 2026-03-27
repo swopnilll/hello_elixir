@@ -1,277 +1,75 @@
---## Notes: Table of Contents
+# Learning Elixir
 
-### [1. Elixir Struct Syntax](notes/1-Elixir-Struct-Syntax.md)
-  - ### [1.1 List in Elixir](notes/3-Elixir-List.md)
+A hands-on journey through Elixir's patterns, syntax, and functional programming concepts by building real projects.
 
-### [2. CLU Command Parser](notes/2-CLI-command-parser.md)
-
-### [3. Cards Project](notes/cards/1.md)
-- [3.1 Intro](notes/cards/2.md)
-- [3.2 Mix Intro](notes/cards/2.md)
-
-
-### [4. Pattern Match](notes/pattern-match/1.md)
-- [4.1 Elixir File System + Erlang + BEAM](notes/pattern-match/2.md)
-- [4.2 Saving Data in Elixir (Using Erlang)](notes/pattern-match/3.md)
-- [4.3 Loading Data + Pattern Matching + Error Handling](notes/pattern-match/4.md)
-- [4.4 Atoms + Advanced Pattern Matching + Clean Case](notes/pattern-match/5.md)
-- [4.5 Pipe Operator](notes/pattern-match/6.md)
-- [4.6 Pipe Operator (|>) in Elixir](notes/pattern-match/7.md)
-- [4.7 Summary](notes/pattern-match/8.md)
-
-### [5. Data Structure in Elixir]
-- [5.1 Maps in Elxir](notes/pattern-match/9.md)
-- [5.2 Maps in Elxir ( Write Operation)](notes/pattern-match/10.md)
-- [5.3 Keyword Lists ](notes/pattern-match/11.md)
-- [5.4 ](notes/pattern-match/10.md)
-- [5.5 ](notes/pattern-match/11.md)
-- [5.6 ](notes/pattern-match/12.md)
-
-
-
-# HelloElixir - Learning Notes
-
-## Project Structure
-
-```
-hello_elixir/
-├── _build/          # Compiled output (like node_modules/.cache or dist/)
-├── lib/             # Source code (like src/)
-│   └── hello_elixir.ex
-├── test/            # Tests (like __tests__/ or test/)
-├── .formatter.exs   # Code formatter config (like .prettierrc)
-├── mix.exs          # Project config (like package.json)
-└── README.md
-```
-
-## Key Files
-
-| Elixir | Node.js Equivalent |
-|--------|-------------------|
-| `mix.exs` | `package.json` |
-| `mix.lock` | `package-lock.json` |
-| `/deps` | `/node_modules` |
-| `/_build` | `/dist` or `/build` |
-
-## File Extensions
-
-- `.ex` - Compiled code (your actual application)
-- `.exs` - Script files (config, tests - like `.mjs` for scripts)
+> **Course Reference**: These notes are from [The Complete Elixir and Phoenix Bootcamp](https://www.udemy.com/course/the-complete-elixir-and-phoenix-bootcamp-and-tutorial/) on Udemy. Highly recommended for learning Elixir from scratch. This repository serves as my personal revision notes.
 
 ---
 
-## Elixir vs JavaScript Concepts
+## Approach
 
-### 1. Atoms (`:atom`)
+We learn Elixir by **building projects**. Each project introduces new concepts:
 
-Atoms are constants where the name IS the value. They're immutable and unique.
-
-```elixir
-# Elixir
-:ok
-:error
-:hello_world
-```
-
-```javascript
-// JavaScript equivalent - Symbols or string constants
-const OK = Symbol('ok')
-// or
-const STATUS = { OK: 'ok', ERROR: 'error' }
-```
-
-**Common uses:**
-```elixir
-# Return values (instead of throwing errors)
-{:ok, result}
-{:error, "something went wrong"}
-
-# Like JS: { status: 'ok', data: result }
-```
-
-### 2. Modules & `use`
-
-```elixir
-# Elixir
-defmodule HelloElixir.MixProject do
-  use Mix.Project      # Injects code/macros into this module
-end
-```
-
-```javascript
-// JavaScript equivalent
-class MixProject extends Mix.Project {  // roughly like inheritance
-  // use = injects methods, macros, and behaviors
-}
-
-// or with mixins
-Object.assign(MixProject.prototype, Mix.Project)
-```
-
-**`use` vs `import` vs `alias`:**
-
-```elixir
-# use - injects code into your module (like extending a class)
-use ExUnit.Case
-
-# import - brings functions into scope (like JS import)
-import Enum, only: [map: 2, filter: 2]
-
-# alias - shortens module names
-alias MyApp.Accounts.User, as: User
-```
-
-```javascript
-// JS equivalents
-import { map, filter } from 'lodash'      // import
-import User from './accounts/user'         // alias
-```
-
-### 3. Functions
-
-```elixir
-# Elixir
-def hello do          # public function
-  :world
-end
-
-defp private_fn do    # private function (defp)
-  "can't call from outside"
-end
-```
-
-```javascript
-// JavaScript
-export function hello() {    // public
-  return 'world'
-}
-
-function privateFn() {       // private (not exported)
-  return "can't call from outside"
-}
-```
-
-### 4. Pattern Matching
-
-```elixir
-# Elixir - pattern matching (VERY powerful)
-{:ok, user} = get_user(1)    # extracts user if status is :ok
-[head | tail] = [1, 2, 3]    # head = 1, tail = [2, 3]
-```
-
-```javascript
-// JavaScript - destructuring (similar but less powerful)
-const { status, user } = getUser(1)
-const [head, ...tail] = [1, 2, 3]
-```
-
-### 5. Pipe Operator
-
-```elixir
-# Elixir - pipe operator |>
-"hello world"
-|> String.upcase()
-|> String.split(" ")
-# => ["HELLO", "WORLD"]
-```
-
-```javascript
-// JavaScript - method chaining or proposed pipeline
-"hello world"
-  .toUpperCase()
-  .split(" ")
-```
-
-### 6. Lists & Maps
-
-```elixir
-# Elixir
-list = [1, 2, 3]                    # linked list
-map = %{name: "John", age: 30}      # map (like object)
-map.name                            # => "John"
-```
-
-```javascript
-// JavaScript
-const list = [1, 2, 3]              // array
-const map = { name: "John", age: 30 }
-map.name                            // => "John"
-```
-
-### 7. Anonymous Functions
-
-```elixir
-# Elixir
-add = fn a, b -> a + b end
-add.(1, 2)                    # Note the dot! => 3
-
-# Shorthand
-add = &(&1 + &2)
-```
-
-```javascript
-// JavaScript
-const add = (a, b) => a + b
-add(1, 2)                     // => 3
-```
+| Project | What We Learn |
+|---------|---------------|
+| **Cards Game** | Pattern matching, pipe operator, atoms, error handling, file I/O |
+| **Identicon Generator** | Structs, maps, lists, more syntax patterns |
 
 ---
 
-## Mix Commands (like npm scripts)
+## Reference Notes
 
-| Mix Command | npm Equivalent |
-|-------------|----------------|
-| `mix new app` | `npm init` |
-| `mix deps.get` | `npm install` |
-| `mix compile` | `npm run build` |
-| `mix test` | `npm test` |
-| `mix format` | `npm run prettier` |
-| `iex -S mix` | `node` (REPL with project loaded) |
+- [Elixir Struct Syntax](notes/1-Elixir-Struct-Syntax.md)
+- [Lists in Elixir](notes/3-Elixir-List.md)
+- [CLI Command Parser](notes/2-CLI-command-parser.md)
+
+---
+
+## Project 1: Cards Game
+
+A simple card game that teaches core Elixir concepts.
+
+### Setup
+- [1.1 Intro](notes/cards/1.md)
+- [1.2 Mix Intro](notes/cards/2.md)
+
+### Pattern Matching & Core Concepts
+- [1.3 Elixir File System + Erlang + BEAM](notes/pattern-match/2.md)
+- [1.4 Saving Data in Elixir (Using Erlang)](notes/pattern-match/3.md)
+- [1.5 Loading Data + Pattern Matching + Error Handling](notes/pattern-match/4.md)
+- [1.6 Atoms + Advanced Pattern Matching + Clean Case](notes/pattern-match/5.md)
+- [1.7 Pipe Operator](notes/pattern-match/6.md)
+- [1.8 Pipe Operator (|>) Deep Dive](notes/pattern-match/7.md)
+- [1.9 Summary](notes/pattern-match/8.md)
+
+### Data Structures
+- [1.10 Maps in Elixir](notes/pattern-match/9.md)
+- [1.11 Maps (Write Operations)](notes/pattern-match/10.md)
+- [1.12 Keyword Lists](notes/pattern-match/11.md)
+
+---
+
+## Project 2: Identicon Generator
+
+Generate unique identicon images (like GitHub's default avatars) from strings. This project focuses on Elixir syntax, structs, maps, and lists.
+
+### Setup & Concepts
+- [2.1 Project Setup](notes/identication/1.md)
+- [2.2 Requirements & Flow](notes/identication/2.md)
+- [2.3 MD5 Hashing Approach](notes/identication/3.md)
+- [2.4 Hash Function & Grid Logic](notes/identication/4.md)
 
 ---
 
 ## Quick Reference
 
 ```elixir
-# Module definition
-defmodule MyModule do
-  # Module attribute (like class constant)
-  @default_value 42
+# Pipe Operator
+"input" |> hash_input |> pick_color |> build_grid |> render_image
 
-  # Public function
-  def my_function(arg) do
-    arg + @default_value
-  end
+# Pattern Matching
+{:ok, result} = some_function()
 
-  # Private function
-  defp helper do
-    "internal use only"
-  end
-end
-
-# Calling functions
-MyModule.my_function(8)  # => 50
+# Structs
+%Identicon.Image{hex: [145, 46, 200, ...], color: {145, 46, 200}}
 ```
-
----
-
-## Running the Project
-
-
-
-```bash
-# Start interactive shell
-iex -S mix
-
-# Then call your function
-iex> HelloElixir.hello()
-:world
-
-# Run tests
-mix test
-```
-
-
-
-
-
