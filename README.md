@@ -72,6 +72,7 @@ Generate unique identicon images (like GitHub's default avatars) from strings. T
 
 ### Rendering the Image
 - [2.12 Building the Pixel Map (Index to Coordinates)](notes/identication/12.md)
+- [2.13 Implementing build_pixel_map](notes/identication/13.md)
 
 ---
 
